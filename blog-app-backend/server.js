@@ -16,9 +16,23 @@ app.use((req, res, next) => {
   next();
 });
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://blog-app-git-main-manitrishas-projects.vercel.app/"
+];
+if (process.env.FRONTEND_URL) {
+  allowedOrigins.push(process.env.FRONTEND_URL);
+}
+
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", 
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true, 
   })
 );
@@ -44,7 +58,7 @@ const connectDB=async()=>{
    app.listen(port,()=>console.log(`server listening on ${port}`))
     }catch(err){
         console.log("err in db connection:", err.message)
-        console.log("DB_URL used:", process.env.DB_URL ? "SET" : "NOT SET")
+        console.log("DB_URL used:", process.env.DB_URL ||"NOT SET")
     }
 }
 connectDB()
@@ -79,4 +93,3 @@ app.use((err, req, res, next) => {
     details: err.stack, // 👈 ADD stack trace for debugging
   });
 });
-
