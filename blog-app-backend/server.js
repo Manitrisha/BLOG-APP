@@ -17,23 +17,22 @@ app.use((req, res, next) => {
 });
 
 const allowedOrigins = [
+  process.env.FRONTEND_URL,
   "http://localhost:5173",
-  "https://blog-app-git-main-manitrishas-projects.vercel.app/"
-];
-if (process.env.FRONTEND_URL) {
-  allowedOrigins.push(process.env.FRONTEND_URL);
-}
+  "https://blog-app-git-main-manitrishas-projects.vercel.app",
+  "https://blog-app-livid-mu-55.vercel.app",
+].filter(Boolean);
 
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error('Not allowed by CORS'));
+        callback(new Error(`CORS policy block: origin ${origin} not allowed`));
       }
     },
-    credentials: true, 
+    credentials: true,
   })
 );
 app.use(cookieParser())
