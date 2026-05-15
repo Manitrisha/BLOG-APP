@@ -19,6 +19,7 @@ app.use((req, res, next) => {
 const allowedOrigins = [
   process.env.FRONTEND_URL,
   "http://localhost:5173",
+  "http://localhost:5174",
   "https://blog-app-git-main-manitrishas-projects.vercel.app",
   "https://blog-app-livid-mu-55.vercel.app",
 ].filter(Boolean);
