@@ -1,8 +1,8 @@
-# 📝 Blog App
+# Blog App
 
 A full-stack blogging platform with role-based access control, built with **React** and **Express.js**.
 
-## 🌐 Live Demo
+## Live Demo
 
 | Service  | URL |
 |----------|-----|
@@ -11,7 +11,7 @@ A full-stack blogging platform with role-based access control, built with **Reac
 
 ---
 
-## ✨ Features
+## Features
 
 - **User Registration & Login** — secure authentication with JWT (HTTP-only cookies)
 - **Role-Based Access** — three roles: `USER`, `AUTHOR`, `ADMIN`
@@ -24,7 +24,7 @@ A full-stack blogging platform with role-based access control, built with **Reac
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 ### Frontend
 | Technology | Purpose |
@@ -102,7 +102,7 @@ blog-app/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -186,7 +186,7 @@ The app will be available at **http://localhost:5173**.
 
 ---
 
-## 🚢 Deployment
+## Deployment
 
 | Layer | Platform | Config File |
 |-------|----------|-------------|
@@ -195,8 +195,3 @@ The app will be available at **http://localhost:5173**.
 
 > Set the same environment variables listed above in each platform's dashboard.
 
----
-
-## 📄 License
-
-This project is licensed under the **ISC License**.
